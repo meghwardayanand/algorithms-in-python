@@ -1,9 +1,11 @@
 name: Execute All Algorithms' Testcases
 on:
   pull_request:
-  types: [opened, synchronize, reopened]
-  branches:
-    - main
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+
+  push:
 
 jobs:
   algorithms-in-python:
