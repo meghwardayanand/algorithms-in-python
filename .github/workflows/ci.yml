@@ -4,10 +4,6 @@ on:
     branches:
       - "**"
 
-  pull_request:
-    types: [opened, synchronize, reopened]
-    branches:
-      - main
 
 jobs:
   algorithms-in-python:
