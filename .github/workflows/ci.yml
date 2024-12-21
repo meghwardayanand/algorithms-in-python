@@ -1,7 +1,8 @@
 name: Execute All Algorithms' Testcases
 on:
   push:
-    - "**"
+    branches:
+      - "**"
 
   pull_request:
     types: [opened, synchronize, reopened]
@@ -23,6 +24,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
 
     - name: Execute Test Cases
       run: |
