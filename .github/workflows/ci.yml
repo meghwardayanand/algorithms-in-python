@@ -1,0 +1,30 @@
+name: Execute All Algorithms' Testcases
+on:
+  push:
+    branches:
+      - "**"
+
+
+jobs:
+  algorithms-in-python:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set Up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Execute Test Cases
+      run: |
+        while IFS= read -r testfile; do
+          echo "Running tests in $testfile"
+          python3 -m unittest "$testfile"
+        done < testpaths.txt
