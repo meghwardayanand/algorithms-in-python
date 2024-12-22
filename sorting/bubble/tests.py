@@ -2,7 +2,7 @@ import unittest
 from sorting.bubble.bubbleSort import BubbleSort
 
 
-class StackTest(unittest.TestCase):
+class BubbleSortTest(unittest.TestCase):
 
     def setUp(self):
         self.unsorted_data = [64, 34, 25, 12, 22, 11, 90]
