@@ -24,7 +24,7 @@
 ## DYNAMIC PROGRAMMING
 - [ ] 0 - 1 Knapsack
 - [ ] Longest Common Subsequence
-- [ ] Matrix Chain Multiplication
+- [x] Matrix Chain Multiplication
 
 
 ## GRAPHS
