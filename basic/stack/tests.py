@@ -2,7 +2,7 @@ import unittest
 from basic.stack.stack import Stack
 
 
-class StackTest(unittest.TestCase):
+class TestStack(unittest.TestCase):
 
     def setUp(self):
         self.stack_unlimited = Stack(size=5, isLimited=False, dtypes=[int])
