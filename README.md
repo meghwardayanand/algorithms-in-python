@@ -18,7 +18,7 @@
 ## DIVIDE & CONQUER
 - [ ] Fibonacci Number
 - [ ] Matrix Multiplication
-- [ ] nth Power of X
+- [x] nth Power of X
 
 
 ## DYNAMIC PROGRAMMING
