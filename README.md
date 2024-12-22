@@ -1,3 +1,92 @@
+# Data Structures and Algorithms
+
+## APPLICATIONS
+- [ ] Stack
+    - [ ] Reverse A String
+    - [ ] Valid Parentheses
+
+
+## BASIC
+- [x] Stack
+- [ ] Queue
+- [ ] Linked List
+    - [ ] Singly Linked List
+    - [ ] Doubly Linked List
+    - [ ] Circular Linked List
+
+
+## DIVIDE & CONQUER
+- [ ] Fibonacci Number
+- [ ] Matrix Multiplication
+- [ ] nth Power of X
+
+
+## DYNAMIC PROGRAMMING
+- [ ] 0 - 1 Knapsack
+- [ ] Longest Common Subsequence
+- [ ] Matrix Chain Multiplication
+
+
+## GRAPHS
+- [ ] Graph
+    - [ ] Graph
+    - [ ] BFS
+    - [ ] DFS
+
+- [ ] SHORTEST PATHS
+    - [ ] Bellman Ford
+    - [ ] Dijkstra
+
+- [ ] TREE
+    - [ ] Binary Tree OR Binary Search Tree
+    - [ ] Red Black Tree
+    - [ ] MST (Minimum Spanning Tree)
+        - [ ] Kruskal's MST
+        - [ ] Prim's MST
+
+
+## GREEDY
+- [ ] Activity Selection
+- [ ] Knapsack
+    - [ ] 0 - 1 Knapsack
+    - [ ] Fractional Knapsack
+
+
+## HASHING
+- [ ] Chaining
+    - [ ] Division Method
+    - [ ] Multiplication Method
+- [ ] Open Addressing
+    - [ ] Linear Probing
+    - [ ] Quadratic Probing
+    - [ ] Double Hashing
+
+
+## ORDER STATISTICS
+- [ ] ith Greatest Number in Linear Time
+- [ ] ith Smallest Number in Linear Time
+
+
+## SEARCHING
+- [ ] Linear Search
+- [ ] Binary Search
+
+
+## SORTING ALGORITHMS
+- [x] Bubble Sort
+- [ ] Counting Sort
+- [ ] Heap Sort
+- [x] Insertion Sort
+- [ ] Merge Sort
+- [x] Quick Sort
+- [ ] Radix Sort
+- [x] Selection Sort
+- [ ] Topological Sort
+
+
+
+
+
 # Development Team Process
 Repeat the follwoing steps for each change made to this repository:
 1. Checkout `main` branch with command `git checkout main`.
