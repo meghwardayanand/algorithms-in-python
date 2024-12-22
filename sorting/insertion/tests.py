@@ -2,7 +2,7 @@ import unittest
 from sorting.insertion.insertionSort import InsertionSort
 
 
-class StackTest(unittest.TestCase):
+class InsertionSortTest(unittest.TestCase):
 
     def setUp(self):
         self.unsorted_data = [64, 34, 25, 12, 22, 11, 90]
