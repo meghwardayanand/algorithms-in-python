@@ -1,4 +1,5 @@
 import unittest
+
 from dynamicProgramming.matrixChainMultiplication.matrixChainMultiplication import MatrixChainMultiplication
 
 class TestMatrixChainMultiplication(unittest.TestCase):
