@@ -1,4 +1,5 @@
 import unittest
+
 from divideAndConquer.nthPower.nthPower import nthPowerNaive, nthPowerOptimized
 
 
