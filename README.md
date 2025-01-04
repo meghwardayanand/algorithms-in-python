@@ -74,7 +74,7 @@
 
 ## SORTING ALGORITHMS
 - [x] Bubble Sort
-- [ ] Counting Sort
+- [x] Counting Sort
 - [x] Heap Sort
 - [x] Insertion Sort
 - [x] Merge Sort
