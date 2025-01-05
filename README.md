@@ -68,7 +68,7 @@
 
 
 ## SEARCHING
-- [ ] Linear Search
+- [x] Sequential Search / Linear Search
 - [ ] Binary Search
 
 
