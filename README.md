@@ -8,7 +8,7 @@
 
 ## BASIC
 - [x] Stack
-- [ ] Queue
+- [x] Queue
 - [ ] Linked List
     - [ ] Singly Linked List
     - [ ] Doubly Linked List
@@ -69,7 +69,7 @@
 
 ## SEARCHING
 - [x] Sequential Search / Linear Search
-- [ ] Binary Search
+- [x] Binary Search
 
 
 ## SORTING ALGORITHMS
