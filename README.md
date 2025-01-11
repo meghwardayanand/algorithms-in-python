@@ -10,7 +10,7 @@
 - [x] Stack
 - [x] Queue
 - [ ] Linked List
-    - [ ] Singly Linked List
+    - [x] Singly Linked List
     - [ ] Doubly Linked List
     - [ ] Circular Linked List
 
