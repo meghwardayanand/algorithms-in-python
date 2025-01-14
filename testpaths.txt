@@ -1,5 +1,6 @@
 basic/linkedList/singly/tests.py
 basic/linkedList/doubly/tests.py
+basic/linkedList/doubleEnded/tests.py
 basic/linkedList/circular/tests.py
 basic/queue/tests.py
 basic/stack/tests.py
