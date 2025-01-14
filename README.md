@@ -12,6 +12,7 @@
 - [ ] Linked List
     - [x] Singly Linked List
     - [x] Doubly Linked List
+    - [x] Double Ended Linked List
     - [ ] Circular Linked List
 
 
