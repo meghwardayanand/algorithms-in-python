@@ -9,11 +9,11 @@
 ## BASIC
 - [x] Stack
 - [x] Queue
-- [ ] Linked List
+- [x] Linked List
     - [x] Singly Linked List
     - [x] Doubly Linked List
     - [x] Double Ended Linked List
-    - [ ] Circular Linked List
+    - [x] Circular Linked List
 
 
 ## DIVIDE & CONQUER
