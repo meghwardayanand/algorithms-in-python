@@ -105,6 +105,7 @@ Repeat the follwoing steps for each change made to this repository:
 # Commit Messages:
 It should be like `type: single line sentence for changes made`
 Here are some examples of types:
+* `feat` example: "feat: implemented xyz new concept"
 * `fix` example: "fix: resolved xyz issue"
 * `add` example: "add: xyz feature added"
 * `chore` example: "chore: add xyz type of files in .gitignore"
