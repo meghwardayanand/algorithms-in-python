@@ -2,7 +2,7 @@
 
 ## APPLICATIONS
 - [ ] Stack
-    - [ ] Reverse A String
+    - [x] Reverse A String
     - [x] Valid Parentheses
 
 
