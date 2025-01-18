@@ -3,7 +3,7 @@ import unittest
 from applications.stack.validParentheses.validParentheses import Parenthesis
 
 
-class TestStack(unittest.TestCase):
+class TestParenthesis(unittest.TestCase):
 
     def test_empty_str(self):
         self.assertTrue(Parenthesis("").isValid())
