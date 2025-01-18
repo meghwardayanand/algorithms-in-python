@@ -3,7 +3,7 @@
 ## APPLICATIONS
 - [ ] Stack
     - [ ] Reverse A String
-    - [ ] Valid Parentheses
+    - [x] Valid Parentheses
 
 
 ## BASIC
