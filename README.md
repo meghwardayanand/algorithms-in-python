@@ -34,11 +34,11 @@
     - [ ] BFS
     - [ ] DFS
 
-- [ ] SHORTEST PATHS
+- [ ] Shortest Paths
     - [ ] Bellman Ford
     - [ ] Dijkstra
 
-- [ ] TREE
+- [ ] Tree
     - [ ] Binary Tree OR Binary Search Tree
     - [ ] Red Black Tree
     - [ ] MST (Minimum Spanning Tree)
