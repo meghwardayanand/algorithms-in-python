@@ -35,6 +35,48 @@ class TestString(unittest.TestCase):
     def test_reverse_large_input_with_special_chars(self):
         self.assertEqual(String("a!b@c#d$e%f^g&h*i(j)k").reverse(), "k)j(i*h&g^f%e$d#c@b!a")
 
+    def test_is_palindrome_simple(self):
+        self.assertTrue(String("madam").isPalindrome())
+
+    def test_is_palindrome_single_character(self):
+        self.assertTrue(String("a").isPalindrome())
+
+    def test_is_palindrome_empty_string(self):
+        self.assertTrue(String("").isPalindrome())
+
+    def test_is_not_palindrome(self):
+        self.assertFalse(String("hello").isPalindrome())
+
+    def test_is_palindrome_even_length(self):
+        self.assertTrue(String("abba").isPalindrome())
+
+    def test_is_not_palindrome_even_length(self):
+        self.assertFalse(String("abca").isPalindrome())
+
+    def test_is_palindrome_with_spaces(self):
+        self.assertTrue(String("a man a plan a canal panama").isPalindrome())
+
+    def test_is_palindrome_with_special_characters(self):
+        self.assertTrue(String("A man, a plan, a canal, Panama!").isPalindrome())
+
+    def test_is_not_palindrome_with_special_characters(self):
+        self.assertFalse(String("hello, world!").isPalindrome())
+
+    def test_is_palindrome_mixed_case(self):
+        self.assertTrue(String("RaceCar").isPalindrome())
+
+    def test_is_palindrome_with_numbers(self):
+        self.assertTrue(String("12321").isPalindrome())
+
+    def test_is_palindrome_with_mixed_content(self):
+        self.assertTrue(String("A car, a man, a maraca!").isPalindrome())
+
+    def test_is_not_palindrome_with_mixed_content(self):
+        self.assertFalse(String("No 'x' in Nixon").isPalindrome())
+
+    def test_is_palindrome_with_long_string(self):
+        self.assertTrue(String("a" * 1000 + "b" + "a" * 1000).isPalindrome())    
+
 
 if __name__ == "__main__":
     unittest.main()
