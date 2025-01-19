@@ -30,7 +30,7 @@
 
 ## GRAPHS
 - [ ] Graph
-    - [ ] Graph
+    - [x] Graph
     - [ ] BFS
     - [ ] DFS
 
