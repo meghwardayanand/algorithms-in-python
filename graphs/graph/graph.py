@@ -77,7 +77,7 @@ class Graph:
 
     def _getEdge(self, from_vertex, to_vertex):
         for neighborhood in self.graph[from_vertex]:
-            neighbor, weight = neighborhood if self.is_weighted else neighborhood, None
+            (neighbor, weight) = neighborhood if self.is_weighted else (neighborhood, None)
             if neighbor != to_vertex:
                 continue
 
