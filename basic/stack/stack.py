@@ -1,17 +1,17 @@
 
 class Stack:
 
-    def __init__(self, size, isLimited=False, dtypes=[int]):
+    def __init__(self, size, is_limited=False, dtypes=[int]):
         self.size = size
         self.data = []
-        self.isLimited = isLimited
+        self.is_limited = is_limited
         self.dtypes = dtypes
 
     def isEmpty(self):
         return len(self.data) == 0
 
     def isFull(self):
-        return len(self.data) == self.size if self.isLimited else False
+        return len(self.data) == self.size if self.is_limited else False
 
     def pop(self):
         if self.isEmpty():
@@ -29,7 +29,7 @@ class Stack:
             raise Exception(f"Stack is already full with {self.size} items, cannot push more items.")
 
         self.data.append(item)
-        if not self.isLimited and len(self.data) == self.size:
+        if not self.is_limited and len(self.data) == self.size:
             self.size += 1
 
     def peek(self):
