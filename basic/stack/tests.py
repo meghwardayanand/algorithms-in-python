@@ -6,8 +6,8 @@ from basic.stack.stack import Stack
 class TestStack(unittest.TestCase):
 
     def setUp(self):
-        self.stack_unlimited = Stack(size=5, isLimited=False, dtypes=[int])
-        self.stack_limited = Stack(size=3, isLimited=True, dtypes=[int, str])
+        self.stack_unlimited = Stack(size=5, is_limited=False, dtypes=[int])
+        self.stack_limited = Stack(size=3, is_limited=True, dtypes=[int, str])
 
     def test_is_empty(self):
         self.assertTrue(self.stack_limited.isEmpty())
