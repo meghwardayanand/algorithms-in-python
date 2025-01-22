@@ -173,6 +173,108 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(graph.matrix[index1][index2], 0)
         self.assertEqual(graph.matrix[index2][index1], 0)
 
+    def test_bfs_empty_graph(self):
+        graph = Graph(representation='list')
+        with self.assertRaises(ValueError):
+            graph.bfs("A")
+
+    def test_bfs_single_vertex(self):
+        graph = Graph(representation='list')
+        graph.addVertex("A")
+        distances, parents = graph.bfs("A")
+        self.assertEqual(distances, {"A": 0})
+        self.assertEqual(parents, {"A": None})
+
+    def test_bfs_unweighted_graph(self):
+        graph = Graph(representation='list')
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addEdge("A", "B")
+        graph.addEdge("A", "C")
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 1, "C": 1})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "A"})
+
+    def test_bfs_weighted_graph(self):
+        graph = Graph(representation='list', is_weighted=True)
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addEdge("A", "B", weight=5)
+        graph.addEdge("A", "C", weight=3)
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 5, "C": 3})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "A"})
+
+    def test_bfs_directed_graph(self):
+        graph = Graph(representation='list', is_directed=True)
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addEdge("A", "B")
+        graph.addEdge("B", "C")
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 1, "C": 2})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "B"})
+
+    def test_bfs_disconnected_graph(self):
+        graph = Graph(representation='list')
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addVertex("D")
+        graph.addEdge("A", "B")
+        graph.addEdge("C", "D")
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 1, "C": float('inf'), "D": float('inf')})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": None, "D": None})
+
+    def test_bfs_matrix_representation(self):
+        graph = Graph(representation='matrix')
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addEdge("A", "B")
+        graph.addEdge("A", "C")
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 1, "C": 1})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "A"})
+
+    def test_bfs_directed_graph_matrix(self):
+        graph = Graph(representation='matrix', is_directed=True)
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addEdge("A", "B")
+        graph.addEdge("B", "C")
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 1, "C": 2})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "B"})
+
+    def test_bfs_nonexistent_vertex(self):
+        graph = Graph(representation='list')
+        graph.addVertex("A")
+        with self.assertRaises(ValueError):
+            graph.bfs("B")
+
+    def test_bfs_unreachable_vertices(self):
+        graph = Graph(representation='list')
+        graph.addVertex("A")
+        graph.addVertex("B")
+        graph.addVertex("C")
+        graph.addEdge("A", "B")
+        distances, parents = graph.bfs("A")
+
+        self.assertEqual(distances, {"A": 0, "B": 1, "C": float('inf')})
+        self.assertEqual(parents, {"A": None, "B": "A", "C": None})
+
 
 if __name__ == '__main__':
     unittest.main()
