@@ -1,3 +1,13 @@
+from enum import Enum
+
+from basic.queue.queue import Queue
+
+
+class Color(Enum):
+    WHITE = "white"
+    GRAY = "gray"
+    BLACK = "black"
+
 
 class Graph:
     def __init__(self, representation='list', is_directed=False, is_weighted=False):
@@ -112,6 +122,53 @@ class Graph:
 
     def display(self):
         print(self.__repr__())
+
+    def bfs(self, start_vertex):
+        if self.representation == 'list' and start_vertex not in self.graph:
+            raise ValueError(f"Vertex {start_vertex} not found.")
+        elif self.representation == 'matrix' and start_vertex not in self.vertices:
+            raise ValueError(f"Vertex {start_vertex} not found.")
+
+        vertices = self.graph.keys() if self.representation == "list" else self.vertices
+        queue_size = len(vertices)
+        colors = {vertex: Color.WHITE for vertex in vertices if vertex != start_vertex}
+        distances = {vertex: float("inf") for vertex in vertices if vertex != start_vertex}
+        parents = {vertex: None for vertex in vertices if vertex != start_vertex}
+        queue = Queue(size=queue_size)
+
+        queue.enqueue(start_vertex)
+        parents[start_vertex] = None
+        distances[start_vertex] = 0
+        colors[start_vertex] = Color.GRAY
+
+        while not queue.isEmpty():
+            current_vertex = queue.dequeue()
+
+            if self.representation == 'list':
+                neighbors = self.graph[current_vertex]
+                for neighbor in neighbors:
+                    neighbor_vertex, weight =  neighbor if self.is_weighted else (neighbor, 1)
+                    if colors[neighbor_vertex] == Color.WHITE:
+                        colors[neighbor_vertex] = Color.GRAY
+                        distances[neighbor_vertex] = distances[current_vertex] + weight
+                        parents[neighbor_vertex] = current_vertex
+                        queue.enqueue(neighbor_vertex)
+
+                colors[current_vertex] = Color.BLACK
+
+            elif self.representation == 'matrix':
+                index = self.vertices.index(current_vertex)
+                for neighbor_vertex_index, weight in enumerate(self.matrix[index]):
+                    neighbor_vertex = self.vertices[neighbor_vertex_index]
+                    if weight != 0 and colors[neighbor_vertex] == Color.WHITE:
+                        colors[neighbor_vertex] = Color.GRAY
+                        distances[neighbor_vertex] = distances[current_vertex] + weight
+                        parents[neighbor_vertex] = current_vertex
+                        queue.enqueue(neighbor_vertex)
+
+                colors[current_vertex] = Color.BLACK
+
+        return distances, parents
 
     def __repr__(self):
         output = ""
