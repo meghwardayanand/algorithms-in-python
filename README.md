@@ -31,7 +31,7 @@
 ## GRAPHS
 - [ ] Graph
     - [x] Graph
-    - [ ] BFS
+    - [x] BFS
     - [ ] DFS
 
 - [ ] Shortest Paths
