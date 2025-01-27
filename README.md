@@ -29,10 +29,10 @@
 
 
 ## GRAPHS
-- [ ] Graph
+- [x] Graph
     - [x] Graph
     - [x] BFS
-    - [ ] DFS
+    - [x] DFS
 
 - [ ] Shortest Paths
     - [ ] Bellman Ford
