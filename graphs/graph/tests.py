@@ -275,6 +275,84 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(distances, {"A": 0, "B": 1, "C": float('inf')})
         self.assertEqual(parents, {"A": None, "B": "A", "C": None})
 
+    def test_dfs_empty_graph(self):
+        graph = Graph(representation='list')
+        with self.assertRaises(ValueError):
+            graph.dfs("A")
+
+    def test_dfs_single_vertex(self):
+        graph = Graph(representation='list')
+        graph.addVertex("A")
+        discovery_time, finishing_time, parents = graph.dfs("A")
+        self.assertEqual(discovery_time, {"A": 1})
+        self.assertEqual(finishing_time, {"A": 2})
+        self.assertEqual(parents, {"A": None})
+
+    def test_dfs_simple_graph_list(self):
+        graph = Graph(representation='list')
+        graph.addEdge("A", "B")
+        graph.addEdge("A", "C")
+        graph.addEdge("B", "D")
+        discovery_time, finishing_time, parents = graph.dfs("A")
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "A", "D": "B"})
+        self.assertGreater(finishing_time["B"], discovery_time["B"])
+        self.assertGreater(finishing_time["C"], discovery_time["C"])
+        self.assertGreater(finishing_time["D"], discovery_time["D"])
+
+    def test_dfs_simple_graph_matrix(self):
+        graph = Graph(representation='matrix')
+        graph.addEdge("A", "B")
+        graph.addEdge("A", "C")
+        graph.addEdge("B", "D")
+        discovery_time, finishing_time, parents = graph.dfs("A")
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "A", "D": "B"})
+        self.assertGreater(finishing_time["B"], discovery_time["B"])
+        self.assertGreater(finishing_time["C"], discovery_time["C"])
+        self.assertGreater(finishing_time["D"], discovery_time["D"])
+
+    def test_dfs_disconnected_graph(self):
+        graph = Graph(representation='list')
+        graph.addEdge("A", "B")
+        graph.addEdge("C", "D")
+        discovery_time, finishing_time, parents = graph.dfs("A")
+        self.assertEqual(discovery_time["A"], 1)
+        self.assertEqual(finishing_time["A"], 4)
+        self.assertEqual(parents["B"], "A")
+        self.assertIsNone(parents["C"])
+        self.assertEqual(parents["D"], "C")
+        self.assertEqual(discovery_time["C"], 5)
+        self.assertEqual(finishing_time["C"], 8)
+        self.assertEqual(discovery_time["D"], 6)
+        self.assertEqual(finishing_time["D"], 7)
+
+    def test_dfs_directed_graph(self):
+        graph = Graph(representation='list', is_directed=True)
+        graph.addEdge("A", "B")
+        graph.addEdge("B", "C")
+        graph.addEdge("C", "D")
+        discovery_time, finishing_time, parents = graph.dfs("A")
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "B", "D": "C"})
+        self.assertGreater(finishing_time["B"], discovery_time["B"])
+        self.assertGreater(finishing_time["C"], discovery_time["C"])
+        self.assertGreater(finishing_time["D"], discovery_time["D"])
+
+    def test_dfs_weighted_graph(self):
+        graph = Graph(representation='list', is_weighted=True)
+        graph.addEdge("A", "B", weight=5)
+        graph.addEdge("B", "C", weight=3)
+        graph.addEdge("C", "D", weight=2)
+        discovery_time, finishing_time, parents = graph.dfs("A")
+        self.assertEqual(parents, {"A": None, "B": "A", "C": "B", "D": "C"})
+        self.assertGreater(finishing_time["B"], discovery_time["B"])
+        self.assertGreater(finishing_time["C"], discovery_time["C"])
+        self.assertGreater(finishing_time["D"], discovery_time["D"])
+
+    def test_dfs_nonexistent_vertex(self):
+        graph = Graph(representation='list')
+        graph.addEdge("A", "B")
+        with self.assertRaises(ValueError):
+            graph.dfs("Z")
+
 
 if __name__ == '__main__':
     unittest.main()

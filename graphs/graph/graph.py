@@ -170,6 +170,50 @@ class Graph:
 
         return distances, parents
 
+    def _dfs_visit(self, vertex, colors, discovery_time, finishing_time, parents, time):
+        colors[vertex] = Color.GRAY
+        time[0] += 1
+        discovery_time[vertex] = time[0]
+
+        if self.representation == 'list':
+            neighbors = self.graph[vertex]
+            for neighbor in neighbors:
+                neighbor_vertex = neighbor[0] if self.is_weighted else neighbor
+                if colors[neighbor_vertex] == Color.WHITE:
+                    parents[neighbor_vertex] = vertex
+                    self._dfs_visit(neighbor_vertex, colors, discovery_time, finishing_time, parents, time)
+
+        elif self.representation == 'matrix':
+            index = self.vertices.index(vertex)
+            for neighbor_vertex_index, weight in enumerate(self.matrix[index]):
+                neighbor_vertex = self.vertices[neighbor_vertex_index]
+                if weight != 0 and colors[neighbor_vertex] == Color.WHITE:
+                    parents[neighbor_vertex] = vertex
+                    self._dfs_visit(neighbor_vertex, colors, discovery_time, finishing_time, parents, time)
+
+        colors[vertex] = Color.BLACK
+        time[0] += 1
+        finishing_time[vertex] = time[0]
+
+    def dfs(self, start_vertex):
+        if self.representation == 'list' and start_vertex not in self.graph:
+            raise ValueError(f"Vertex {start_vertex} not found.")
+        elif self.representation == 'matrix' and start_vertex not in self.vertices:
+            raise ValueError(f"Vertex {start_vertex} not found.")
+
+        vertices = self.graph.keys() if self.representation == "list" else self.vertices
+        colors = {vertex: Color.WHITE for vertex in vertices}
+        discovery_time = {vertex: float("inf") for vertex in vertices}
+        finishing_time = {vertex: float("inf") for vertex in vertices}
+        parents = {vertex: None for vertex in vertices}
+        time = [0]
+
+        for vertex in vertices:
+            if colors[vertex] == Color.WHITE:
+                self._dfs_visit(vertex, colors, discovery_time, finishing_time, parents, time)
+
+        return discovery_time, finishing_time, parents
+
     def __repr__(self):
         output = ""
         if self.representation == 'list':
