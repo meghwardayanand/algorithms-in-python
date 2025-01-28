@@ -17,7 +17,7 @@ class QuickSort(Sort):
                 self.arr[i], self.arr[j] = self.arr[j], self.arr[i]
 
         self.arr[p], self.arr[i] = self.arr[i], self.arr[p]
-    
+
         return i
 
     def quickSort(self, p, q):
