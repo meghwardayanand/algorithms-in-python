@@ -65,7 +65,7 @@
 
 ## ORDER STATISTICS
 - [ ] ith Greatest Number in Linear Time
-- [ ] ith Smallest Number in Linear Time
+- [x] ith Smallest Number in Linear Time
 
 
 ## SEARCHING
